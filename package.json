@@ -4,20 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^7.10.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.21.3",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.1.2"
   },
   "scripts": {
     "dev": "parcel ./src/index.html",
     "format": "prettier ./src/* --write",
-    "lint": "eslint ./src/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,23 +1,48 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import TodoItem from "./Todoitem.js";
+import React, { useState } from "react";
+import reactDOM from "react-dom";
 
-const TodoItemsFromOutSide = [
-  { id: "learn-react", labelName: "Learn react" },
+import TodoItem from "./TodoItem";
+
+const TodoItemsFromOutside = [
+  { id: "learn-react", labelName: "Learn React" },
   { id: "create-todo-app", labelName: "Create a todo app" },
-  { id: "profit", labelName: "Profiiiit" },
-  { id: "have-fun", labelName: "Have fun!!" },
-  { id: "prettier", labelName: "It is cool!" },
+  { id: "profit", labelName: "Profit" },
+  { id: "prettier", labelName: "Prettier is awesome!" },
 ];
 
-const App = () => (
-  <div id="my-todo-app" className="my-todo-app">
-    <h1>My todo app</h1>
+const App = () => {
+  const [todos, setTodos] = useState(TodoItemsFromOutside);
+  const [newTodo, setNewTodo] = useState("");
 
-    {TodoItemsFromOutSide.map((item) => {
-      return <TodoItem key={item.id} id={item.id} labelName={item.labelName} />;
-    })}
-  </div>
-);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTodos = [
+      ...todos,
+      { id: newTodo.replace(" ", "-"), labelName: newTodo },
+    ];
+    setTodos(newTodos);
+    setNewTodo("");
+  };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+  return (
+    <div id="my-todo-app" className="my-todo-app">
+      <h1>My todo app</h1>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          value={newTodo}
+          onChange={(e) => {
+            setNewTodo(e.target.value);
+          }}
+        />
+      </form>
+      {todos.map((item) => {
+        return (
+          <TodoItem key={item.id} id={item.id} labelName={item.labelName} />
+        );
+      })}
+    </div>
+  );
+};
+// React.createElement(App) == <app />
+// React.createElement(App) == <app />
+reactDOM.render(<App />, document.getElementById("root"));
