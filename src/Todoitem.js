@@ -1,23 +1,22 @@
-import React from 'react';
+import React from "react";
 //import ReactDOM from 'react-dom';
 
-const TodoItem =({id, labelName}) =>{
-    // return React.createElement(
-    //     'div',
-    //      {className: "todo-item"},
-    //      [
-    //         React.createElement('input', {type:"checkbox", id: id}),
-    //         React.createElement("label", {htmlFor: id}, labelName)
-    //      ]
-    // )
+const TodoItem = ({ id, labelName }) => {
+  // return React.createElement(
+  //     'div',
+  //      {className: "todo-item"},
+  //      [
+  //         React.createElement('input', {type:"checkbox", id: id}),
+  //         React.createElement("label", {htmlFor: id}, labelName)
+  //      ]
+  // )
 
-    return (
+  return (
     <div className="todo-item">
-        <input type="checkbox" id={id}/>
-        <label htmlFor={id}>
-            {labelName}
-        </label>
-    </div>)
-}
+      <input type="checkbox" id={id} />
+      <label htmlFor={id}>{labelName}</label>
+    </div>
+  );
+};
 
 export default TodoItem;
