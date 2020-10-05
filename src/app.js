@@ -3,7 +3,6 @@ import reactDOM from "react-dom";
 
 import TodoItem from "./TodoItem";
 
-
 const TodoItemsFromOutside = [
   { id: "learn-react", labelName: "Learn React" },
   { id: "create-todo-app", labelName: "Create a todo app" },
@@ -44,5 +43,6 @@ const App = () => {
     </div>
   );
 };
+// React.createElement(App) == <app />
 // React.createElement(App) == <app />
 reactDOM.render(<App />, document.getElementById("root"));
